@@ -1,0 +1,19 @@
+{
+  "name": "@krsbx/ar-sdk-core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.194",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.4.0",
+    "lodash": "^4.17.21"
+  }
+}
