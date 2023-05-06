@@ -91,4 +91,4 @@ for (let r = 0; r < FREAK_RINGS.length; r++) {
   }
 }
 
-export default FREAKPOINTS;
+export { FREAKPOINTS };
