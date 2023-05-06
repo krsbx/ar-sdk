@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc"
+  },
   "devDependencies": {
     "@types/lodash": "^4.14.194",
+    "rimraf": "^5.0.0",
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "@tensorflow/tfjs-node": "^4.4.0",
-    "@tensorflow/tfjs-node-gpu": "^4.4.0",
+    "@tensorflow/tfjs-node": "^4.5.0",
+    "@tensorflow/tfjs-node-gpu": "^4.5.0",
     "lodash": "^4.17.21"
   }
 }

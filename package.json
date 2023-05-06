@@ -24,7 +24,8 @@
   },
   "workspaces": ["core", "detector", "web", "node"],
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build": "yarn workspaces run build"
   },
   "lint-staged": {
     "{core,web,detector,node}/src/**/*.{ts,tsx}": [
