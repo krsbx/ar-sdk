@@ -1,4 +1,4 @@
-import FREAKPOINTS from './freak';
+import { FREAKPOINTS } from './freak';
 
 export const PYRAMID_MIN_SIZE = 8;
 export const PYRAMID_MAX_OCTAVE = 5;

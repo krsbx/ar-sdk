@@ -1,5 +1,5 @@
 {
-  "name": "@krsbx/ar-sdk-core",
+  "name": "@krsbx/ar-sdk-detector",
   "version": "1.0.0",
   "main": "dist/index.js",
   "license": "MIT",
@@ -8,14 +8,12 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "@tensorflow/tfjs": "^4.5.0",
     "@types/lodash": "^4.14.194",
     "rimraf": "^5.0.0",
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "@tensorflow/tfjs": "^4.4.0",
-    "lodash": "^4.17.21",
-    "ml-matrix": "^6.10.4"
+    "@tensorflow/tfjs": "^4.5.0",
+    "lodash": "^4.17.21"
   }
 }
