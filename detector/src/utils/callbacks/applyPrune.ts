@@ -1,5 +1,7 @@
 import _ from 'lodash';
+import * as tf from '@tensorflow/tfjs';
 import { Constants } from '@krsbx/ar-sdk-core';
+import * as runner from '../runner';
 
 const DETECTOR_CONSTANTS = Constants.IMAGE_TARGET.DETECTOR;
 
@@ -56,5 +58,44 @@ export function computeResult(arg: {
       result[bucket][tIndex][2] = y;
       result[bucket][tIndex][3] = x;
     }
+  }
+}
+
+export function computePrune(arg: {
+  extremasResultsT: tf.Tensor[];
+  reductionKernels: tf.GPGPUProgram[];
+  curAbsScores: number[][];
+  nFeatures: number;
+  result: number[][][];
+}) {
+  const {
+    extremasResultsT,
+    reductionKernels,
+    curAbsScores,
+    nFeatures,
+    result,
+  } = arg;
+
+  for (let k = 0; k < extremasResultsT.length; k++) {
+    const program = reductionKernels[k];
+    const octave = k + 1; // extrema starts from second octave
+
+    if (!program) continue;
+
+    const reducedT = runner.compileAndRun(program, [extremasResultsT[k]]);
+    const reduced = reducedT.arraySync() as number[][];
+    const [height, width] = reducedT.shape;
+
+    if (_.isNil(height) || _.isNil(width)) continue;
+
+    computeResult({
+      height,
+      width,
+      curAbsScores,
+      nFeatures,
+      reduced,
+      octave,
+      result,
+    });
   }
 }

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import * as tf from '@tensorflow/tfjs';
-import * as kernels from '../kernels';
+import { Kernels } from '@krsbx/ar-sdk-core';
 
 export function createReductionKernel(extremasResultsT: tf.Tensor[]) {
   // to reduce to amount of data that need to sync back to CPU by 4 times, we apply this trick:
@@ -10,7 +10,7 @@ export function createReductionKernel(extremasResultsT: tf.Tensor[]) {
 
     if (_.isNil(height) || _.isNil(width)) return;
 
-    return kernels.applyPrune(height, width);
+    return Kernels.applyPrune(height, width);
   });
 
   return _.compact(reductionKernels);
