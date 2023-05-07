@@ -1,11 +1,4 @@
-export { applyFilter } from './applyFilter';
-export { applyPrune } from './applyPrune';
-export { buildExtremas } from './buildExtremas';
-export { computeExtremaAngles } from './computeExtremaAngles';
-export { computeExtremaFreak } from './computeExtremaFreak';
-export { computeFreakDescriptors } from './computeFreakDescriptors';
-export { computeLocalization } from './computeLocalization';
-export { computeOrientationHistograms } from './computeOrientationHistograms';
-export { downsampleBilinear } from './downsampleBilinear';
-export { smoothHistograms } from './smoothHistograms';
-export { upsampleBilinear } from './upsampleBilinear';
+import * as detector from './detector';
+import * as tracker from './tracker';
+
+export { detector, tracker };

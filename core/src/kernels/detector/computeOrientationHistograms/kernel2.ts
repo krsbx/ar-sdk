@@ -1,5 +1,5 @@
 import * as tf from '@tensorflow/tfjs';
-import { ORIENTATION_NUM_BINS } from '../../constants/image-target/detector';
+import { ORIENTATION_NUM_BINS } from '../../../constants/image-target/detector';
 
 function computeOrientationHistograms(
   prunedExtremasT: tf.Tensor,

@@ -2,7 +2,7 @@ import {
   EDGE_HESSIAN_THRESHOLD,
   FREAK_EXPANSION_FACTOR,
   LAPLACIAN_SQR_THRESHOLD,
-} from '../constants/image-target/detector';
+} from '../../constants/image-target/detector';
 
 export function buildExtremas(imageHeight: number, imageWidth: number) {
   const kernel = {

@@ -1,6 +1,6 @@
 import * as tf from '@tensorflow/tfjs';
-import { ORIENTATION_NUM_BINS } from '../../constants/image-target/detector';
-import { generateSubCodes, generateVariableName } from '../helper';
+import { ORIENTATION_NUM_BINS } from '../../../constants/image-target/detector';
+import { generateSubCodes, generateVariableName } from '../../helper';
 
 function computeOrientationHistograms(
   pyramidImagesT: tf.Tensor[][],

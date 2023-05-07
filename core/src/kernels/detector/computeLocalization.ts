@@ -1,5 +1,5 @@
 import * as tf from '@tensorflow/tfjs';
-import { generateSubCodes, generateVariableName } from './helper';
+import { generateSubCodes, generateVariableName } from '../helper';
 
 export function computeLocalization(
   dogPyramidImagesT: tf.Tensor[],

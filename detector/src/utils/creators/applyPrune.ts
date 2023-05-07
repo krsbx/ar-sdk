@@ -10,7 +10,7 @@ export function createReductionKernel(extremasResultsT: tf.Tensor[]) {
 
     if (_.isNil(height) || _.isNil(width)) return;
 
-    return Kernels.applyPrune(height, width);
+    return Kernels.detector.applyPrune(height, width);
   });
 
   return _.compact(reductionKernels);
