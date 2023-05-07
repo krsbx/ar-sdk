@@ -22,13 +22,13 @@
     "prettier": "^2.8.8",
     "typescript": "^5.0.4"
   },
-  "workspaces": ["core", "detector", "web", "node"],
+  "workspaces": ["core", "detector", "web", "node", "estimator"],
   "scripts": {
     "prepare": "husky install",
     "build": "yarn workspaces run build"
   },
   "lint-staged": {
-    "{core,web,detector,node}/src/**/*.{ts,tsx}": [
+    "{core,web,detector,estimator,node}/src/**/*.{ts,tsx}": [
       "prettier --write",
       "eslint --fix"
     ]

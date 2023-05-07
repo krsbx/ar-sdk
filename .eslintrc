@@ -34,7 +34,7 @@
     "no-console": "off",
     "no-param-reassign": "warn",
     "operator-assignment": "warn",
-    "no-restricted-syntax": "warn",
+    "no-restricted-syntax": "off",
     "no-shadow": "warn",
     "no-continue": "off"
   },
