@@ -1,1 +1,3 @@
-export default {};
+import Tracker from './tracker/Tracker';
+
+export { Tracker };

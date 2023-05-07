@@ -1,4 +1,6 @@
-import { applyModelViewProjectionTransform } from '../helper';
+import { Utils } from '@krsbx/ar-sdk-core';
+
+const { applyModelViewProjectionTransform } = Utils.projections.transforms;
 
 export function computeScreenCoordinate(
   modelViewProjectionTransform: number[][],
