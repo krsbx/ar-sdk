@@ -1,9 +1,11 @@
-const computeMatching = (
-  searchOneSize: number,
-  searchGap: number,
-  searchSize: number,
-  featureCount: number
-) => {
+const computeMatching = (arg: {
+  searchOneSize: number;
+  searchGap: number;
+  searchSize: number;
+  featureCount: number;
+}) => {
+  const { featureCount, searchGap, searchOneSize, searchSize } = arg;
+
   const kernel2 = {
     variableNames: ['featurePoints', 'markerProperties', 'maxIndex'],
     outputShape: [featureCount, 2], // [x, y]

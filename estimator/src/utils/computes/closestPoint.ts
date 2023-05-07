@@ -1,11 +1,12 @@
 /* eslint-disable camelcase */
-import { Constants } from '@krsbx/ar-sdk-core';
+import { Constants, Utils } from '@krsbx/ar-sdk-core';
 import { getDeltaS } from './deltaS';
 import { getJ_U_Ss } from './J_U_S';
 import { computeErrors } from './errors';
 import { updateModelViewTransform } from './transforms';
 import { computeScreenCoordinates } from './coordinates';
-import { buildModelViewProjectionTransform } from '../helper';
+
+const { buildModelViewProjectionTransform } = Utils.projections.transforms;
 
 const {
   ICP_BREAK_LOOP_ERROR_RATIO_THRESH,

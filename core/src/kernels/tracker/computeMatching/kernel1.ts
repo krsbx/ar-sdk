@@ -1,13 +1,24 @@
-const computeMatching = (
-  templateOneSize: number,
-  templateSize: number,
-  searchOneSize: number,
-  searchGap: number,
-  searchSize: number,
-  targetHeight: number,
-  targetWidth: number,
-  featureCount: number
-) => {
+const computeMatching = (arg: {
+  templateOneSize: number;
+  templateSize: number;
+  searchOneSize: number;
+  searchGap: number;
+  searchSize: number;
+  targetHeight: number;
+  targetWidth: number;
+  featureCount: number;
+}) => {
+  const {
+    featureCount,
+    searchGap,
+    searchOneSize,
+    searchSize,
+    targetHeight,
+    targetWidth,
+    templateOneSize,
+    templateSize,
+  } = arg;
+
   const kernel1 = {
     variableNames: [
       'features',

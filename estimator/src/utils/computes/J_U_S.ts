@@ -1,6 +1,8 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable camelcase */
-import { applyModelViewProjectionTransform } from '../helper';
+import { Utils } from '@krsbx/ar-sdk-core';
+
+const { applyModelViewProjectionTransform } = Utils.projections.transforms;
 
 export function getJ_U_S(arg: {
   modelViewProjectionTransform: number[][];
