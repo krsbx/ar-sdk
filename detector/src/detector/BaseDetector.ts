@@ -94,7 +94,7 @@ class BaseDetector {
 
     if (!this.kernelCaches.applyFilter) this.kernelCaches.applyFilter = {};
     if (!this.kernelCaches.applyFilter[kernelKey]) {
-      this.kernelCaches.applyFilter[kernelKey] = Kernels.applyFilter(
+      this.kernelCaches.applyFilter[kernelKey] = Kernels.detector.applyFilter(
         height,
         width
       );
@@ -124,10 +124,8 @@ class BaseDetector {
 
     if (!this.kernelCaches.buildExtremas) this.kernelCaches.buildExtremas = {};
     if (!this.kernelCaches.buildExtremas[kernelKey])
-      this.kernelCaches.buildExtremas[kernelKey] = Kernels.buildExtremas(
-        height,
-        width
-      );
+      this.kernelCaches.buildExtremas[kernelKey] =
+        Kernels.detector.buildExtremas(height, width);
 
     return tf.tidy(() => {
       if (!this.kernelCaches?.buildExtremas?.[kernelKey]) return;
@@ -151,10 +149,11 @@ class BaseDetector {
     dogPyramidImagesT: tf.Tensor[]
   ) {
     if (!this.kernelCaches.computeLocalization) {
-      this.kernelCaches.computeLocalization = Kernels.computeLocalization(
-        dogPyramidImagesT,
-        prunedExtremasList
-      );
+      this.kernelCaches.computeLocalization =
+        Kernels.detector.computeLocalization(
+          dogPyramidImagesT,
+          prunedExtremasList
+        );
     }
 
     return tf.tidy(() => {
@@ -209,7 +208,7 @@ class BaseDetector {
 
     if (!this.kernelCaches.computeOrientationHistograms)
       this.kernelCaches.computeOrientationHistograms =
-        Kernels.computeOrientationHistograms(
+        Kernels.detector.computeOrientationHistograms(
           pyramidImagesT,
           prunedExtremasT,
           radialPropertiesT,
@@ -236,7 +235,7 @@ class BaseDetector {
   protected computeExtremaAngles(histograms: tf.Tensor) {
     if (!this.kernelCaches.computeExtremaAngles)
       this.kernelCaches.computeExtremaAngles =
-        Kernels.computeExtremaAngles(histograms);
+        Kernels.detector.computeExtremaAngles(histograms);
 
     return tf.tidy(() => {
       if (!this.kernelCaches?.computeExtremaAngles) return;
@@ -274,10 +273,8 @@ class BaseDetector {
     );
 
     if (!this.kernelCaches.computeExtremaFreak)
-      this.kernelCaches.computeExtremaFreak = Kernels.computeExtremaFreak(
-        pyramidImagesT,
-        prunedExtremas
-      );
+      this.kernelCaches.computeExtremaFreak =
+        Kernels.detector.computeExtremaFreak(pyramidImagesT, prunedExtremas);
 
     return tf.tidy(() => {
       if (!this.kernelCaches.computeExtremaFreak) return;
@@ -319,7 +316,7 @@ class BaseDetector {
 
     if (!this.kernelCaches.computeFreakDescriptors)
       this.kernelCaches.computeFreakDescriptors =
-        Kernels.computeFreakDescriptors(
+        Kernels.detector.computeFreakDescriptors(
           extremaFreaks,
           descriptorCount,
           DETECTOR_CONSTANTS.FREAK_CONPARISON_COUNT
@@ -356,10 +353,8 @@ class BaseDetector {
       this.kernelCaches.upsampleBilinear = {};
 
     if (!this.kernelCaches.upsampleBilinear[kernelKey])
-      this.kernelCaches.upsampleBilinear[kernelKey] = Kernels.upsampleBilinear(
-        targetHeight,
-        targeWidth
-      );
+      this.kernelCaches.upsampleBilinear[kernelKey] =
+        Kernels.detector.upsampleBilinear(targetHeight, targeWidth);
 
     return tf.tidy(() => {
       if (!this.kernelCaches?.upsampleBilinear?.[kernelKey]) return;
@@ -382,7 +377,7 @@ class BaseDetector {
 
     if (!this.kernelCaches.downsampleBilinear[kernelKey])
       this.kernelCaches.downsampleBilinear[kernelKey] =
-        Kernels.downsampleBilinear(height, width);
+        Kernels.detector.downsampleBilinear(height, width);
 
     return tf.tidy(() => {
       if (!this.kernelCaches?.downsampleBilinear?.[kernelKey]) return;
@@ -395,7 +390,8 @@ class BaseDetector {
 
   protected smoothHistograms(histograms: tf.Tensor) {
     if (!this.kernelCaches.smoothHistograms)
-      this.kernelCaches.smoothHistograms = Kernels.smoothHistograms(histograms);
+      this.kernelCaches.smoothHistograms =
+        Kernels.detector.smoothHistograms(histograms);
 
     return tf.tidy(() => {
       const program = this.kernelCaches.smoothHistograms;

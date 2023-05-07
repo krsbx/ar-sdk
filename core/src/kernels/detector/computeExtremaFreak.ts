@@ -1,7 +1,7 @@
 import * as tf from '@tensorflow/tfjs';
-import { FREAK_EXPANSION_FACTOR } from '../constants/image-target/detector';
-import { FREAKPOINTS } from '../constants/image-target/freak';
-import { generateSubCodes, generateVariableName } from './helper';
+import { FREAK_EXPANSION_FACTOR } from '../../constants/image-target/detector';
+import { FREAKPOINTS } from '../../constants/image-target/freak';
+import { generateSubCodes, generateVariableName } from '../helper';
 
 export function computeExtremaFreak(
   pyramidImagesT: tf.Tensor[][],
